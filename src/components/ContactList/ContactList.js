@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
+import { ContactListItem } from '../ContactListItem /ContactListItem';
 
 
 export const ContactList = ({ contacts }) => (
   <ul>
     {contacts.map(contact => (
-      <li key={contact.id}>{contact.name}: {contact.number}</li>
+      <ContactListItem key={contact.id} name={contact.name} number={contact.number} />
     ))}
   </ul>
 );
