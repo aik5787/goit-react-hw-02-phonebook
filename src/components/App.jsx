@@ -1,8 +1,8 @@
 import { Component } from 'react';
-
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { ContactFilter } from './ContactFilter/ContactFilter';
+import { Container, TitleHone, TitleHtwo} from './App.styled'
 
 
 
@@ -33,20 +33,27 @@ export class App extends Component {
     );
   };
   
+
+   deleteContact = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
+   };
+  
     render() {
       const filteredContacts = this.getFilteredContacts();
 
     return (
-      <>
-        <h1>Phonebook</h1>
-        <ContactForm onAddContact={this.addContact} />
-        <h2>Contacts</h2>
+      <Container>
+        <TitleHone>Phonebook</TitleHone>
+        <ContactForm onAddContact={this.addContact} contacts={this.state.contacts} />
+        <TitleHtwo>Contacts</TitleHtwo>
         <ContactFilter
           value={this.state.filter}
           onChange={this.handleFilterChange}
         />
-        <ContactList contacts={filteredContacts} />
-      </>
+        <ContactList contacts={filteredContacts} onDeleteContact={this.deleteContact}/>
+      </Container>
     );
   }
 

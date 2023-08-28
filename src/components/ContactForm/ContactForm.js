@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import {ContactFormContainer, FormLabel, FormInput, FormButton } from './ContactForm.styled'
 
 
 export class ContactForm extends Component {
@@ -23,8 +24,15 @@ export class ContactForm extends Component {
     
 
        const { name, number } = this.state;
-       const { onAddContact } = this.props;
-    if (name.trim() === '' || number.trim() === '') return;
+       const { onAddContact, contacts } = this.props;
+     if (name.trim() === '' || number.trim() === '') return;
+     
+     const isExistingContact = contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase());
+
+    if (isExistingContact) {
+      alert(`${name} is already in contacts.`);
+      return;
+    }
 
        const newContact = { id: nanoid(), name, number };
        onAddContact(newContact);
@@ -35,8 +43,10 @@ export class ContactForm extends Component {
    };
     render() {
         const { name, number } = this.state;
-        return (<form onSubmit={this.handleSubmit}>
-    <input
+      return (<ContactFormContainer onSubmit={this.handleSubmit}>
+        <FormLabel htmlFor="nameInput">Name</FormLabel>
+        <FormInput
+          id="nameInput"
       type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я\-'\s]*$"
@@ -46,7 +56,9 @@ export class ContactForm extends Component {
       value={name}
       onChange={this.handleNameChange}
         />
-         <input
+      <FormLabel htmlFor="numberInput">Number</FormLabel>
+        <FormInput
+          id="numberInput"
       type="tel"
             name="number"
             pattern="[0-9]*"
@@ -56,13 +68,14 @@ export class ContactForm extends Component {
       value={number}
       onChange={this.handleNumberChange}
         />
-    <button type="submit">Add contact</button>
-  </form>)
+    <FormButton type="submit">Add contact</FormButton>
+  </ContactFormContainer>)
     }
 }
 
 ContactForm.propTypes = {
-    onAddContact: PropTypes.func.isRequired
+  onAddContact: PropTypes.func.isRequired,
+  contacts: PropTypes.array.isRequired
 };
 
 
