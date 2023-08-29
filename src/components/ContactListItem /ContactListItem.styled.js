@@ -12,7 +12,7 @@ export const ListItemInfo = styled.span``;
 
 export const ListItemButton = styled.button`
   background-color: #f44336;
-  color: white;
+  color: #fff;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
