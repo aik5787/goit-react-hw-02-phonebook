@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-
 export const ContactFormContainer = styled.form`
- display: flex;
+  display: flex;
   flex-direction: column;
   width: 300px;
   margin: 0 0 20px 0;
@@ -10,11 +9,10 @@ export const ContactFormContainer = styled.form`
   padding: 20px;
 `;
 
-
 export const FormLabel = styled.label`
   margin-bottom: 10px;
   font-size: 18px;
-font-weight: 600;
+  font-weight: 600;
 `;
 
 export const FormInput = styled.input`
@@ -26,16 +24,16 @@ export const FormInput = styled.input`
 `;
 
 export const FormButton = styled.button`
-width: 150px;
-font-size: 17px;
-border-radius: 4px;
- padding: 5px 10px;
+  width: 150px;
+  font-size: 17px;
+  border-radius: 4px;
+  padding: 5px 10px;
   background-color: #007bff;
   color: #fff;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
-  
+
   &:hover {
     background-color: #0056b3;
   }

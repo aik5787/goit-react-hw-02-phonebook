@@ -1,23 +1,17 @@
 import styled from 'styled-components';
 
-
-export const ListItem = styled.li`
-`;
-
+export const ListItem = styled.li``;
 
 export const ListItemWrapper = styled.div`
-display: flex;
-justify-content: space-between;
-font-size: 18px;
-
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
 `;
 
-
-export const ListItemInfo = styled.span`
-`;
+export const ListItemInfo = styled.span``;
 
 export const ListItemButton = styled.button`
-background-color: #f44336;
+  background-color: #f44336;
   color: white;
   border: none;
   padding: 5px 10px;

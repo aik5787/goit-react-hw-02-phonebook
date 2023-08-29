@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
-
-
 export const FilterContainer = styled.div`
-display: flex;
+  display: flex;
   flex-direction: column;
   width: 300px;
   margin: 0;
@@ -13,7 +11,7 @@ display: flex;
 export const FilterLabel = styled.label`
   margin-bottom: 10px;
   font-size: 18px;
-font-weight: 600;
+  font-weight: 600;
 `;
 
 export const FilterInput = styled.input`
